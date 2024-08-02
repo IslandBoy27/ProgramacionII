@@ -12,7 +12,6 @@ import java.util.Scanner;
  * @author Jayma
  */
 
-
 public class Empresa {
     static Scanner lea = new Scanner(System.in);
     static List<Empleado> empleados = new ArrayList<>();
@@ -140,7 +139,7 @@ public class Empresa {
         int codigo = lea.nextInt();
 
         Empleado emp = search(codigo);
-        if (emp instanceof EmpleadoTemporal) {
+        if (emp instanceof EmpleadoTemporal empleadoTemporal) {
             System.out.print("Año de finalización: ");
             int year = lea.nextInt();
             System.out.print("Mes de finalización: ");
@@ -148,7 +147,7 @@ public class Empresa {
             System.out.print("Día de finalización: ");
             int dia = lea.nextInt();
 
-            ((EmpleadoTemporal) emp).setFinContrato(year, mes - 1, dia); // -1 porque Calendar mes empieza en 0
+            empleadoTemporal.setFinContrato(year, mes - 1, dia); // -1 porque Calendar mes empieza en 0
         } else {
             System.out.println("Empleado no encontrado o no es temporal.");
         }
@@ -159,10 +158,10 @@ public class Empresa {
         int codigo = lea.nextInt();
 
         Empleado emp = search(codigo);
-        if (emp instanceof EmpleadoPorVenta) {
+        if (emp instanceof EmpleadoPorVenta empleadoPorVenta) {
             System.out.print("Monto de la venta: ");
             double monto = lea.nextDouble();
-            ((EmpleadoPorVenta) emp).addVenta(monto);
+            empleadoPorVenta.addVenta(monto);
         } else {
             System.out.println("Empleado no encontrado o no es por ventas.");
         }
