@@ -1,12 +1,12 @@
 package ProgramacionII;
 
 
-public class EmpleadoComun implements Empleable {
+public class EmpleadoComun extends Empleado implements Empleable {
 
     protected double salario;
 
     public EmpleadoComun(int code, String name, double salary) {
-
+        super(code, name);
         salario = salary;
     }
 
